@@ -1,10 +1,16 @@
+import zapscaleImg from "@/assets/zapscale.png";
+import tiatrosMImg from "@/assets/tiatros-m.png";
+import tiatrosLtsImg from "@/assets/tiatros-lts.png";
+import tiatros1Img from "@/assets/tiatros-1.png";
+import solaroImg from "@/assets/solaro.png";
+
 const ProjectsPage = () => {
   const projects = [
     {
       title: "Zapscale",
       description:
         "Easiest to use and fastest to implement, ZapScale gives the deepest customer insights to growing CS teams.",
-      image: "/src/assets/zapscale.png",
+      image: zapscaleImg,
       technologies: [
         "Node.js",
         "Vue.js",
@@ -19,7 +25,7 @@ const ProjectsPage = () => {
       title: "TEP - Tiatros mobile app",
       description:
         "TEP is the revolutionary HIPAA-Compliant Cloud based healthcare solution for medical care. Doctors & extended care teams, share medical records, collect and analyze real-time clinical information, and coordinate treatment plans with patients, their families and health providers.",
-      image: "/src/assets/tiatros-m.png",
+      image: tiatrosMImg,
       technologies: ["React Native", "React js", "Typescript", "JavaScript"],
       link: "https://www.tiatros.com/",
     },
@@ -27,7 +33,7 @@ const ProjectsPage = () => {
       title: "CBT by Tiatros",
       description:
         "CBT is a cloud-based telemedicine platform that provides secure and efficient communication between healthcare providers and patients. It offers a range of features to support telemedicine services, including video consultations, secure messaging, and patient management tools.",
-      image: "/src/assets/tiatros-lts.png",
+      image: tiatrosLtsImg,
       technologies: [
         "Ruby",
         "Rails",
@@ -43,7 +49,7 @@ const ProjectsPage = () => {
       title: "Tiatros",
       description:
         "Tiatros is the revolutionary HIPAA-Compliant Cloud based healthcare solution for medical care. Doctors & extended care teams, share medical records, collect and analyze real-time clinical information, and coordinate treatment plans with patients, their families and health providers.",
-      image: "/src/assets/tiatros-1.png",
+      image: tiatros1Img,
       technologies: [
         "Ruby",
         "Rails",
@@ -59,7 +65,7 @@ const ProjectsPage = () => {
       title: "SOLARO",
       description:
         "SOLARO Helps You Study Better and Faster. Get online help in Math, Science, and English language arts; all aligned to the Alberta curriculum, with SOLARO.",
-      image: "/src/assets/solaro.png",
+      image: solaroImg,
       technologies: [
         "Ruby",
         "Rails",

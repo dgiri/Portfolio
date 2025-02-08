@@ -5,6 +5,7 @@ import { useTheme } from "../context/ThemeContext";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import debashisImg from "@/assets/debashis.png";
 
 const NavHeader = () => {
   const location = useLocation();
@@ -29,7 +30,7 @@ const NavHeader = () => {
             {/* Logo */}
             <div className="flex items-center gap-2">
               <img
-                src="/src/assets/deb.png"
+                src={debashisImg}
                 alt="Debashis Giri"
                 className="w-10 h-10 rounded-md object-contain"
               />
