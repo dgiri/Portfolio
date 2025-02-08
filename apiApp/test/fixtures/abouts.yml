@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  intro: MyText
+  location: MyString
+  available_for_work: false
+
+two:
+  intro: MyText
+  location: MyString
+  available_for_work: false
