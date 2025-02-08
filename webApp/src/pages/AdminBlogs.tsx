@@ -6,21 +6,21 @@ import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 
 export const AdminPosts = () => {
-  const { admin, logout } = useAuth();
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!admin) {
+    if (!user) {
       navigate("/login");
     }
-  }, [admin, navigate]);
+  }, [user, navigate]);
 
   return (
     <div className="container mx-auto p-4">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Admin Panel</h1>
         <div className="flex items-center gap-4">
-          <span className="text-sm text-gray-600">{admin?.email}</span>
+          <span className="text-sm text-gray-600">Admin</span>
           <Button onClick={logout} variant="outline">
             Logout
           </Button>
