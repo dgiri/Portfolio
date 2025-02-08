@@ -5,13 +5,28 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
+# Rails.application.config.middleware.insert_before 0, Rack::Cors do
+#   allow do
+#     origins "http://localhost:3000"
+
+#     resource "*",
+#       headers: :any,
+#       methods: [:get, :post, :put, :patch, :delete, :options, :head],
+#       credentials: true
+#   end
+# end
+
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "http://localhost:3000"
+    origins [
+      'http://localhost:3000',
+      'http://127.0.0.1:3000',
+      'https://portfolio-176d.onrender.com',
+    ]
 
-    resource "*",
+    resource '*',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
-      credentials: true
+      credentials: true               # If you're using cookies/sessions
   end
 end
