@@ -2,7 +2,7 @@ services:
   - type: web
     name: rails-api
     env: ruby
-    buildCommand: bundle install && bundle exec rake db:migrate
+    buildCommand: bundle install && bundle exec rake db:migrate db:cable_migrate db:cache_migrate db:queue_migrate
     startCommand: bundle exec rails s
     envVars:
       - key: DATABASE_URL

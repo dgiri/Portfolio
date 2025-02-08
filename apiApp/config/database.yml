@@ -15,3 +15,15 @@ production:
   primary: &primary_production
     <<: *default
     url: <%= ENV['DATABASE_URL'] %>
+  cable:
+    <<: *default
+    url: <%= ENV['DATABASE_URL'] %>
+    database: api_app_production_cable
+  cache:
+    <<: *default
+    url: <%= ENV['DATABASE_URL'] %>
+    database: api_app_production_cache
+  queue:
+    <<: *default
+    url: <%= ENV['DATABASE_URL'] %>
+    database: api_app_production_queue
