@@ -5,7 +5,7 @@ import { useTheme } from "../context/ThemeContext";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import debashisImg from "@/assets/debashis.png";
+import debashisImg from "@/assets/deb.png";
 
 const NavHeader = () => {
   const location = useLocation();
