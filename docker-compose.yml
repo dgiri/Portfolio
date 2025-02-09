@@ -47,6 +47,8 @@ services:
       dockerfile: webApp/Dockerfile
       args:
         API_URL: ${API_URL:-http://localhost:3000}
+    environment:
+      VITE_API_URL: ${API_URL:-http://localhost:3000}
     ports:
       - "80:80"
     depends_on:

@@ -3,14 +3,8 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Debug: Print working directory
-RUN pwd && ls -la
-
 # Copy only package.json first
 COPY webApp/package.json ./
-
-# Debug: Check package.json
-RUN cat package.json
 
 # Install dependencies
 RUN npm install
@@ -18,22 +12,19 @@ RUN npm install
 # Copy the rest of the React application
 COPY webApp/ .
 
-# Debug: List files after copy
-RUN ls -la
-
-# Build the React application
+# Build the React application (Vite)
 ARG API_URL
-ENV REACT_APP_API_URL=${API_URL}
-RUN npm run build || (echo "Build failed" && ls -la && exit 1)
+ENV VITE_API_URL=${API_URL}
+RUN npm run build
 
-# Debug: Check if build directory exists
-RUN ls -la build || echo "Build directory not found"
+# Debug: Check dist directory (Vite uses 'dist' instead of 'build')
+RUN ls -la dist
 
 # Production stage
 FROM nginx:alpine
 
-# Copy the built React app
-COPY --from=builder /app/build /usr/share/nginx/html
+# Copy the built React app from 'dist' directory (Vite default)
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Copy nginx configuration
 COPY webApp/docker/nginx.conf /etc/nginx/conf.d/default.conf
