@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       post 'logout', to: 'authentication#logout'
       get '/me', to: 'authentication#me'
 
+      get '/health_check', to: 'health#index'
+
       resources :blogs do
         collection do
           get 'published'
