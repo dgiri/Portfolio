@@ -26,6 +26,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     isAdmin: boolean;
   } | null>(null);
   const [loading, setLoading] = useState(true);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const initializeAuth = async () => {
@@ -33,7 +34,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (storedToken) {
         try {
           // Verify token with backend
-          const response = await fetch("http://localhost:3001/api/v1/me", {
+          const response = await fetch(`${API_URL}/api/v1/me`, {
             headers: { Authorization: `Bearer ${storedToken}` },
           });
 
@@ -52,13 +53,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
 
     initializeAuth();
-  }, []);
+  }, [API_URL]);
 
   const login = async (newToken: string) => {
     localStorage.setItem("adminToken", newToken);
     setToken(newToken);
 
-    const response = await fetch("http://localhost:3001/api/v1/me", {
+    const response = await fetch(`${API_URL}/api/v1/me`, {
       headers: { Authorization: `Bearer ${newToken}` },
     });
     const data = await response.json();
@@ -70,7 +71,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = async () => {
     try {
       // Send logout request to server with auth token
-      await fetch("http://localhost:3001/api/v1/logout", {
+      await fetch(`${API_URL}/api/v1/logout`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -110,3 +111,5 @@ export const useAuth = () => {
   }
   return context;
 };
+
+export { AuthContext };
