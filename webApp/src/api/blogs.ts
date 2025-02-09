@@ -1,5 +1,5 @@
-const API_BASE = "http://localhost:3001/api/v1";
-
+// const API_BASE = "http://localhost:3001/api/v1";
+const API_BASE = import.meta.env.REACT_APP_API_URL;
 const handleResponse = async (response: Response) => {
   if (!response.ok) {
     const error = await response.json();

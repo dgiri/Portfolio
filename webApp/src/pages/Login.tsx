@@ -12,10 +12,12 @@ export const LoginPage = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  const API_BASE = import.meta.env.REACT_APP_API_URL;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3001/api/v1/login", {
+      const response = await fetch(`${API_BASE}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
