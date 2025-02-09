@@ -12,7 +12,11 @@ export const LoginPage = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const API_BASE = import.meta.env.REACT_APP_API_URL;
+  const API_BASE = import.meta.env.VITE_API_URL;
+
+  if (!API_BASE) {
+    throw new Error("VITE_API_URL environment variable is not defined");
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
