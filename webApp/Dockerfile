@@ -3,11 +3,11 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files
-COPY webApp/package.json webApp/package-lock.json ./
+# Copy only package.json first
+COPY webApp/package.json ./
 
 # Install dependencies
-RUN npm ci
+RUN npm install
 
 # Copy the rest of the React application
 COPY webApp/ .
