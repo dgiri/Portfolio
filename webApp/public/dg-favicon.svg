@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Black circle background -->
+  <circle cx="50" cy="50" r="50" fill="black"/>
+  
+  <!-- White DG text -->
+  <text 
+    x="50" 
+    y="50" 
+    text-anchor="middle" 
+    dominant-baseline="central" 
+    fill="white" 
+    font-family="Arial, sans-serif" 
+    font-weight="bold" 
+    font-size="45">
+    DG
+  </text>
+</svg>
