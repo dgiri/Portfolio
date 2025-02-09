@@ -22,6 +22,8 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
       'http://localhost:3000',
       'http://127.0.0.1:3000',
       'https://portfolio-176d.onrender.com',
+      'http://ec2-54-83-120-36.compute-1.amazonaws.com:3000',
+      'http://ec2-54-83-120-36.compute-1.amazonaws.com:80'
     ]
 
     resource '*',
